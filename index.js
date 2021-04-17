@@ -1,11 +1,12 @@
 const puppeteer = require("puppeteer");
+const path = require("path");
 
-async function screenshot(browser, url, name) {
+async function screenshot(browser, name) {
   const page = await browser.newPage();
 
   await page.setViewport({ width: 491, height: 755 }); // 13cm x 20cm
 
-  await page.goto(url);
+  await page.goto(path.join(__dirname, "index.html"));
 
   await page.screenshot({ path: `photos/${name}.png` });
 
@@ -17,7 +18,7 @@ async function main() {
     headless: false,
   });
 
-  await screenshot(browser, "https://example.com", "example");
+  await screenshot(browser, "example");
 
   await browser.close();
 }
