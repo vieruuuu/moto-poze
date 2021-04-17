@@ -4,18 +4,24 @@ const path = require("path");
 async function screenshot(browser, name) {
   const page = await browser.newPage();
 
-  await page.setViewport({ width: 491, height: 755 }); // 13cm x 20cm
+  await page.goto(path.join(__dirname, "index.html"), {
+    waitUntil: "networkidle0",
+  });
 
-  await page.goto(path.join(__dirname, "index.html"));
+  await page.waitForSelector("#tabelul");
 
-  await page.screenshot({ path: `photos/${name}.png` });
+  const element = await page.$("#tabelul");
+
+  await element.screenshot({
+    path: `photos/${name}.png`,
+  });
 
   await page.close();
 }
 
 async function main() {
   const browser = await puppeteer.launch({
-    headless: false,
+    // headless: false,
   });
 
   await screenshot(browser, "example");

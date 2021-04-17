@@ -1,0 +1,46 @@
+.tabel {
+  width: 13cm;
+  height: 20cm;
+  font-size: 16px;
+  line-height: 4px;
+  border: 3px solid black;
+  border-collapse: collapse;
+  border-spacing: 0px;
+  table-layout: fixed;
+}
+
+.tabel tr {
+  height: fit-content;
+}
+
+td {
+  padding: 6px 3px 3px 3px;
+}
+
+.bordura,
+.bordura > td {
+  border-width: 3px 0px 3px 0px;
+  border-color: black;
+  border-style: solid;
+  border-collapse: collapse;
+}
+
+.titlu,
+.pret {
+  font-size: 24px;
+  font-style: italic;
+  padding: 15px;
+}
+
+.titlu {
+  text-align: left;
+}
+
+.pret {
+  color: red;
+  text-align: right;
+}
+
+p {
+  margin: 13px 0px 13px 0px;
+}
