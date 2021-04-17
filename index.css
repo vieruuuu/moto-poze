@@ -15,15 +15,26 @@
 }
 
 .tabel tr {
-  padding: 0px;
   height: fit-content;
 }
 
-.bordura {
-  border-width: 3px 3px 3px 3px;
-  border-color: black;
-  border-style: solid;
+.center p {
+  margin-left: 35px;
+}
+
+.center span {
+  writing-mode: vertical-rl;
+  float: left;
+  font-weight: bold;
+  position: relative;
+  margin: 0px 0px 0px 15px;
+}
+
+.bordura,
+.bordura td {
+  border: 3px solid black;
   border-spacing: 0px;
+  padding: 3px 0px 3px 0px;
   border-collapse: collapse;
 }
 .titlu,
@@ -34,8 +45,9 @@
 }
 
 .titlu {
-  float: left;
+  left: 0;
   line-height: normal;
+  position: absolute;
 }
 
 .pret {
