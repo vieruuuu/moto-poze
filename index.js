@@ -36,20 +36,18 @@ async function screenshot(browser, name, dataArray) {
 
   await page.waitForSelector("#tabelul");
 
-  await page.evaluate((dataArray) => {
-    const body = document.body;
-    const len = dataArray.length;
+  let body = await page.content();
+  const len = dataArray.length;
 
-    for (let i = 0; i < len; i++) {
-      const slot = dataArray[i];
+  for (let i = 0; i < len; i++) {
+    const slot = dataArray[i];
 
-      body.innerHTML = body.innerHTML.replace(`slot${i}`, slot);
-    }
-  }, dataArray);
+    body = body.replace(`$$slot${i}`, slot);
+  }
+
+  await page.setContent(body, { waitUntil: "networkidle0" });
 
   const element = await page.$("#tabelul");
-
-  console.log(`photos/${name}`);
 
   await element.screenshot({
     path: `photos/gen00ceva.png`,
