@@ -1,0 +1,26 @@
+Nume ::: CROSS MAVERIX   
+Pret ::: 14999 RON
+Poza ::: https://www.moto-velo-sport.ro/image/cache/catalog/CROSS/black-1500x1500w.png
+
+Disciplina ::: Disciplina
+Dimensiune roata ::: 20''
+Transmisie ::: Transmisie
+Suspensie ::: Suspensie
+
+Schimbator pinioane ::: Schimbator pinioane
+Schimbator foi ::: Schimbator foi
+Manete schimbator ::: Manete schimbator
+Angrenaj ::: Angrenaj
+Pinioane ::: Pinioane
+Lant ::: Lant
+Monobloc ::: Monobloc
+
+Tip frana ::: Tip frana
+Model ::: Model
+
+Anvelope ::: Anvelope
+Jante ::: Jante
+Butuc fata ::: Butuc fata
+Butuc spate ::: Butuc spate
+
+ === ceva
