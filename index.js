@@ -5,6 +5,7 @@ const { readFile } = require("fs/promises");
 
 async function getData(dataFile) {
   const rawData = await readFile(dataFile, { encoding: "utf-8" });
+
   let dataArray = [];
   let fileName = "";
 
@@ -63,7 +64,7 @@ function watchForData(browser) {
 
   const watcher = watch(dataFile, async (eventName) => {
     if (!timeout) {
-      timeout = setTimeout(() => (timeout = null), 5000); // 5s, sa nu se faca de mai multe ori un ss daca ai salvat o data
+      timeout = setTimeout(() => (timeout = null), 2000); // sa nu se faca de mai multe ori un ss daca ai salvat o data
 
       if (eventName === "change") {
         console.log("citesc datele");
