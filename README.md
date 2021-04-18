@@ -4,7 +4,9 @@ o sa fie si un exe la sectiunea de releases
 
 ## deps:
 
-node: `v14.15.3`
+de la versiuni mai mici pot aparea probleme
+
+node: `v15.13.0`
 
 npm: `6.14.9`
 

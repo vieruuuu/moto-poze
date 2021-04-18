@@ -20,7 +20,7 @@ async function getData(dataFile) {
 
       dataArray.push(slot);
     } else if (linie.includes("===")) {
-      fileName = "gen0" + linie.split("===")[1].replace(" ", "0");
+      fileName = "gen_" + linie.split("===")[1].replace(" ", "_") + ".png";
     }
   }
 
@@ -49,8 +49,10 @@ async function screenshot(browser, name, dataArray) {
 
   const element = await page.$("#tabelul");
 
+  const savePath = path.join(__dirname, "photos", name);
+
   await element.screenshot({
-    path: `photos/gen00ceva.png`,
+    path: savePath,
   });
 
   await page.close();

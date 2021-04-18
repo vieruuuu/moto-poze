@@ -1,26 +1,26 @@
-Nume ::: CROSS MAVERIX
-Pret ::: 14999 RON
-Poza ::: https://www.moto-velo-sport.ro/image/cache/catalog/CROSS/black-1500x1500w.png
+Nume :::  CROSS nexter
+Pret ::: 2.100 RON
+Poza ::: https://www.moto-velo-sport.ro/image/cache/catalog/cross%20dexter%20albastru-1500x1500w.png
 
-Disciplina ::: Disciplina
-Dimensiune roata ::: 20''
-Transmisie ::: Transmisie
-Suspensie ::: Suspensie
+Disciplina :::  MTB
+Dimensiune roata ::: 26''
+Transmisie ::: 3x8 viteze
+Suspensie ::: Suntour XCM Lock-out 26"
 
-Schimbator pinioane ::: Schimbator pinioane
-Schimbator foi ::: Schimbator foi
-Manete schimbator ::: Manete schimbator
-Angrenaj ::: Angrenaj
-Pinioane ::: Pinioane
-Lant ::: Lant
-Monobloc ::: Monobloc
+Schimbator pinioane ::: Shimano Altus
+Schimbator foi ::: Shimano Tourney
+Manete schimbator ::: Shimano Altus M310
+Angrenaj ::: Shimano Tourney FC-TY301
+Pinioane ::: Shimano Tourney MF-TZ500asd
+Lant ::: KMC Z7
+Monobloc ::: -
 
-Tip frana ::: Tip frana
-Model ::: Model
+Tip frana ::: Disc > hidraulica
+Model ::: Shimano BR-M200
 
-Anvelope ::: Anvelope
-Jante ::: Jante
-Butuc fata ::: Butuc fata
-Butuc spate ::: Butuc spate
+Anvelope ::: Kenda K-Rad 26x2.30
+Jante ::: Crosser X14 26''
+Butuc fata ::: Joy Tech
+Butuc spate ::: Joy Tech
 
- === ceva
+ === alisa2

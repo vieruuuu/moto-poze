@@ -19,7 +19,7 @@
 }
 
 .center p {
-  margin-left: 35px;
+  margin-left: 35px !important;
 }
 
 .center span {
@@ -36,6 +36,9 @@
   border-spacing: 0px;
   padding: 3px 0px 3px 0px;
   border-collapse: collapse;
+}
+.bordura td p {
+  margin-left: 10px;
 }
 .titlu,
 .pret {
