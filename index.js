@@ -1,7 +1,7 @@
 const puppeteer = require("puppeteer");
 const path = require("path");
 
-async function screenshot(browser, name) {
+async function screenshot(browser, name, data) {
   const page = await browser.newPage();
 
   await page.goto(path.join(__dirname, "index.html"), {
@@ -9,6 +9,14 @@ async function screenshot(browser, name) {
   });
 
   await page.waitForSelector("#tabelul");
+
+  await page.evaluate(() => {
+    const body = document.body;
+
+    for (let i = 0; i < 20; i++) {
+      body.innerHTML = body.innerHTML.replace(`slot${i}`, `replaced${i}`);
+    }
+  });
 
   const element = await page.$("#tabelul");
 
