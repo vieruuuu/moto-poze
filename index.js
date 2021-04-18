@@ -29,7 +29,7 @@ async function getData(dataFile) {
 async function screenshot(browser, name, dataArray) {
   const page = await browser.newPage();
 
-  await page.goto(path.join(__dirname, "index.html"), {
+  await page.goto("file://" + path.join(__dirname, "index.html"), {
     waitUntil: "networkidle0",
   });
 
