@@ -1,7 +1,9 @@
 const puppeteer = require("puppeteer");
+const { downloadBrowser } = require("puppeteer/lib/cjs/puppeteer/node/install");
+
 const path = require("path");
 const { watch } = require("fs");
-const { readFile } = require("fs/promises");
+const { readFile, mkdir } = require("fs/promises");
 
 async function getData(dataFile) {
   const rawData = await readFile(dataFile, { encoding: "utf-8" });
@@ -80,6 +82,10 @@ function watchForData(browser) {
 }
 
 (async () => {
+  await mkdir("./node_modules/puppeteer/.local-chromium", { recursive: true });
+
+  await downloadBrowser();
+
   console.log("started");
 
   console.log("starting puppeteer");

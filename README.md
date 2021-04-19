@@ -6,7 +6,7 @@ o sa fie si un exe la sectiunea de releases
 
 de la versiuni mai mici pot aparea probleme
 
-node: `v15.13.0`
+node: `v14.15.3`
 
 npm: `6.14.9`
 

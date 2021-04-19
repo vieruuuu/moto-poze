@@ -8,6 +8,10 @@
   },
   "scripts": {
     "start": "node index.js",
-    "build": ""
+    "build-linux": "yarn run nexe --verbose --target linux-x64-14.15.3 index.js -o build/moto-poze",
+    "build-win": "yarn run nexe --verbose --target windows-x64-14.15.3 index.js -o build/moto-poze.exe"
+  },
+  "devDependencies": {
+    "nexe": "^4.0.0-beta.18"
   }
 }
