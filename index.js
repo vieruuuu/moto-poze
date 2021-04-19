@@ -111,7 +111,7 @@ function watchForData(browser) {
 
         console.log("creez poza");
         await screenshot(browser, fileName, dataArray);
-        console.log("poza gata");
+        console.log(`(${fileName}) poza gata`);
       }
     }
   });
@@ -134,7 +134,6 @@ function watchForData(browser) {
   const browser = await puppeteer.launch({
     // headless: false,
   });
-
   console.log("started puppeteer");
 
   console.log("watching data.txt");
