@@ -118,6 +118,8 @@ function watchForData(browser) {
 }
 
 (async () => {
+  console.log("starting");
+
   await Promise.all([
     mkdir("./node_modules/puppeteer/.local-chromium", { recursive: true }),
     mkdir("./photos", { recursive: true }),
@@ -132,6 +134,8 @@ function watchForData(browser) {
   const browser = await puppeteer.launch({
     // headless: false,
   });
+
+  console.log("started puppeteer");
 
   console.log("watching data.txt");
   watchForData(browser);
