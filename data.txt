@@ -1,3 +1,4 @@
+
 Nume :::  CROSS nexter
 Pret ::: 2.100 RON
 Poza ::: https://www.moto-velo-sport.ro/image/cache/catalog/cross%20dexter%20albastru-1500x1500w.png
@@ -23,4 +24,4 @@ Jante ::: Crosser X14 26''
 Butuc fata ::: Joy Tech
 Butuc spate ::: Joy Tech
 
- === alisa2
+=== numefisier
