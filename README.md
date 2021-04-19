@@ -12,7 +12,7 @@ rulezi programul si il lasi in fundal, editezi in `data.txt` randurile ce contin
 
 ## download
 
-o sa fie si un exe la sectiunea de releases, **e nevoie de o conexiune si de mai mult spatiu decat descarcarea initiala pt a descarca chromium**
+o sa fie si un exe la sectiunea de [releases](https://github.com/vieruuuu/moto-poze/releases), **e nevoie de o conexiune si de mai mult spatiu decat descarcarea initiala pt a descarca chromium**
 
 ## cum faci alt model
 
