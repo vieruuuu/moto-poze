@@ -1,44 +1,48 @@
 const puppeteer = require("puppeteer");
 const { downloadBrowser } = require("puppeteer/lib/cjs/puppeteer/node/install");
 
+const { green, red } = require("chalk");
+
 // pt loguri mai smechere
 require("console-stamp")(console);
 
+const readline = require("readline");
+
 const path = require("path");
 const { watch } = require("fs");
-const { readFile, mkdir, writeFile } = require("fs/promises");
+const { readFile, mkdir, writeFile, readdir } = require("fs/promises");
 
 // proate am nev de asta candva si o las aici
 const isDev = process.env.DEV === "true";
 
 // asta e modelul de fisier data.txt
 const DATA = `
-Nume :::  CROSS nexter
-Pret ::: 2.100 RON
-Poza ::: https://www.moto-velo-sport.ro/image/cache/catalog/cross%20dexter%20albastru-1500x1500w.png
-
-Disciplina :::  MTB
-Dimensiune roata ::: 26''
-Transmisie ::: 3x8 viteze
-Suspensie ::: Suntour XCM Lock-out 26"
-
-Schimbator pinioane ::: Shimano Altus
-Schimbator foi ::: Shimano Tourney
-Manete schimbator ::: Shimano Altus M310
-Angrenaj ::: Shimano Tourney FC-TY301
-Pinioane ::: Shimano Tourney MF-TZ500asd
-Lant ::: KMC Z7
-Monobloc ::: -
-
-Tip frana ::: Disc > hidraulica
-Model ::: Shimano BR-M200
-
-Anvelope ::: Kenda K-Rad 26x2.30
-Jante ::: Crosser X14 26''
-Butuc fata ::: Joy Tech
-Butuc spate ::: Joy Tech
-
 === numefisier
+
+0: Nume :::  CROSS nexter
+1: Pret ::: 2.100 RON
+2: Poza ::: https://www.moto-velo-sport.ro/image/cache/catalog/cross%20dexter%20albastru-1500x1500w.png
+ 
+3: Disciplina :::  MTB
+4: Dimensiune roata ::: 26''
+5: Transmisie ::: 3x8 viteze
+6: Suspensie ::: Suntour XCM Lock-out 26"
+ 
+7: Schimbator pinioane ::: Shimano Altus
+8: Schimbator foi ::: Shimano Tourney
+9: Manete schimbator ::: Shimano Altus M310
+10: Angrenaj ::: Shimano Tourney FC-TY301
+11: Pinioane ::: Shimano Tourney MF-TZ500asd
+12: Lant ::: KMC Z7
+13: Monobloc ::: -
+ 
+14: Tip frana ::: Disc > hidraulica
+15: Model ::: Shimano BR-M200
+ 
+16: Anvelope ::: Kenda K-Rad 26x2.30
+17: Jante ::: Crosser X14 26''
+18: Butuc fata ::: Joy Tech
+19: Butuc spate ::: Joy Tech
 `;
 
 async function getData(dataFile) {
@@ -65,10 +69,10 @@ async function getData(dataFile) {
   return { fileName, dataArray };
 }
 
-async function screenshot(browser, name, dataArray) {
+async function screenshot(browser, template, name, dataArray) {
   const page = await browser.newPage();
 
-  await page.goto("file://" + path.join(__dirname, "index.html"), {
+  await page.goto("file://" + path.join(__dirname, template), {
     waitUntil: "networkidle0",
   });
 
@@ -96,7 +100,7 @@ async function screenshot(browser, name, dataArray) {
   await page.close();
 }
 
-function watchForData(browser) {
+function watchForData(browser, template) {
   const dataFile = "data.txt";
   let timeout;
 
@@ -110,20 +114,53 @@ function watchForData(browser) {
         console.log("gata datele");
 
         console.log("creez poza");
-        await screenshot(browser, fileName, dataArray);
+        await screenshot(browser, template, fileName, dataArray);
         console.log(`(${fileName}) poza gata`);
       }
     }
   });
 }
 
+async function templatePicker() {
+  console.log("pick template");
+
+  const files = await readdir(".");
+  let htmlFiles = "";
+
+  for (let i = 0; i < files.length; i++) {
+    const file = files[i];
+
+    if (file.includes(".html")) {
+      htmlFiles += file + " ";
+    }
+  }
+
+  console.log(green(htmlFiles));
+
+  const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout,
+  });
+
+  for await (const line of rl) {
+    if (files.includes(line)) {
+      console.log("using " + green(line) + " template");
+      return line;
+    } else {
+      console.log(red("type a file from this list"));
+    }
+  }
+}
+
 (async () => {
   console.log("starting");
+
+  const template = await templatePicker();
 
   await Promise.all([
     mkdir("./node_modules/puppeteer/.local-chromium", { recursive: true }),
     mkdir("./photos", { recursive: true }),
-    writeFile("data.txt", DATA),
+    writeFile("data.txt", DATA, { encoding: "utf-8" }),
   ]);
 
   await downloadBrowser();
@@ -137,7 +174,7 @@ function watchForData(browser) {
   console.log("started puppeteer");
 
   console.log("watching data.txt");
-  watchForData(browser);
+  watchForData(browser, template);
 
   // await browser.close();
 })();
