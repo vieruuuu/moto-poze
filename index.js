@@ -135,6 +135,11 @@ async function templatePicker() {
     }
   }
 
+  if (!htmlFiles) {
+    console.log("no html files in folder");
+    process.exit(1);
+  }
+
   console.log(green(htmlFiles));
 
   const rl = readline.createInterface({
@@ -156,6 +161,10 @@ async function templatePicker() {
   console.log("starting");
 
   const template = await templatePicker();
+
+  if (!template) {
+    process.exit(1);
+  }
 
   await Promise.all([
     mkdir("./node_modules/puppeteer/.local-chromium", { recursive: true }),
